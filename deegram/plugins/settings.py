@@ -29,26 +29,26 @@ async def settings(event):
 @bot.on(events.CallbackQuery(pattern="q"))
 async def settings_quality(event):
     q = users[event.query.user_id]["quality"]
-    a = "Lossless"
+    a = "Low"
     b = "High"
     c = "Medium"
-    d = "Low"
+    d = "Lossless"
     s = " ✅"
 
-    if q == "FLAC":
+    if q == "MP3_128":
         a += s
     elif q == "MP3_320":
         b += s
     elif q == "MP3_256":
         c += s
-    elif q == "MP3_128":
+    elif q == "FLAC":
         d += s
 
     await event.edit(
         "Select song quality: ",
         buttons=[
-            [Button.inline(a, data="FLAC"), Button.inline(b, data="MP3_320")],
-            [Button.inline(c, data="MP3_256"), Button.inline(d, data="MP3_128")],
+            [Button.inline(a, data="MP3_128"), Button.inline(b, data="MP3_320")],
+            [Button.inline(c, data="MP3_256"), Button.inline(d, data="FLAC")],
             [Button.inline("◀️"), Button.inline("❌")],
         ],
     )
