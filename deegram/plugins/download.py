@@ -33,7 +33,7 @@ async def track_link(event: Union[NewMessage.Event, Message]):
             track.release_date
         ),
         file=track.album.cover_xl)
-    quality = users[event.from_id]["quality"]
+    quality = users[event.user_id]["quality"]
     download_status = DownloadStatus(event)
     await download_status.start()
     file = await bot.loop.run_in_executor(None, deezer.download_track, track, quality, download_status.progress)
@@ -42,7 +42,7 @@ async def track_link(event: Union[NewMessage.Event, Message]):
     file_name = track.artist + " - " + track.title + file_ext
     upload_status = UploadStatus(event)
     await upload_status.start()
-    async with bot.action(event.from_id, 'audio'):
+    async with bot.action(event.user_id, 'audio'):
         uploaded_file = await upload_file(
             file_name=file_name,
             client=bot,
