@@ -1,6 +1,6 @@
-VERSION = "0.1.1"
-CREATOR = "@aykut"
-BOT_NAME = "Deegram"
+VERSION = "2.0kek"
+CREATOR = "@ebruiser"
+BOT_NAME = "EBRUISER-MUSIC"
 WELCOME_MSG = (
 	f"🎶🎵 Welcome to {BOT_NAME} 🎵🎶\n\n"
 	"Click /help for more information."
