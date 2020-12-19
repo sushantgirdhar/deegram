@@ -76,5 +76,5 @@ bot.loop.run_until_complete(
 async def init_user(event):
     if event.from_id not in users.keys():
         users[event.from_id] = {
-            "quality": "FLAC"
+            "quality": "MP3_128"
         }
